@@ -1,22 +1,21 @@
 package main
 
-import (
-	"sort"
-	"strings"
-)
-
-func sortString(str string) string {
-	s := strings.Split(str, "")
-	sort.Strings(s)
-	return strings.Join(s, "")
-}
-
 func IsAnagram(s string, t string) bool {
-	sortS := sortString(s)
-	sortT := sortString(t)
-
-	if sortS != sortT {
+	if len(s) != len(t) {
 		return false
+	}
+
+	freq := make(map[rune]int)
+
+	for _, ch := range s {
+		freq[ch]++
+	}
+
+	for _, ch := range t {
+		freq[ch]--
+		if freq[ch] < 0 {
+			return false
+		}
 	}
 
 	return true
