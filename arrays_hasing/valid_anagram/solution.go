@@ -1,42 +1,23 @@
 package main
 
+import (
+	"sort"
+	"strings"
+)
+
+func sortString(str string) string {
+	s := strings.Split(str, "")
+	sort.Strings(s)
+	return strings.Join(s, "")
+}
+
 func IsAnagram(s string, t string) bool {
-	mapS := make(map[byte]int)
-	mapT := make(map[byte]int)
+	sortS := sortString(s)
+	sortT := sortString(t)
 
-	for idx, _ := range s {
-		if val, exists := mapS[s[idx]]; exists {
-			mapS[s[idx]] = val + 1
-		} else {
-			mapS[s[idx]] = 1
-		}
+	if sortS != sortT {
+		return false
 	}
 
-	for idx, _ := range t {
-		if val, exists := mapT[t[idx]]; exists {
-			mapT[t[idx]] = val + 1
-		} else {
-			mapT[t[idx]] = 1
-		}
-	}
-
-	isMapSValid := true
-	for idx, _ := range mapS {
-		if mapS[idx] != mapT[idx] {
-			isMapSValid = false
-		}
-	}
-
-	isMapTValid := true
-	for idx, _ := range mapT {
-		if mapS[idx] != mapT[idx] {
-			isMapTValid = false
-		}
-	}
-
-	if isMapSValid && isMapTValid {
-		return true
-	}
-
-	return false
+	return true
 }
