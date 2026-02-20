@@ -1,4 +1,4 @@
-# Valid Anagram
+# [Valid Anagram](https://neetcode.io/problems/is-anagram)
 
 ## Problem
 

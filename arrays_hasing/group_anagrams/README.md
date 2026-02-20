@@ -1,4 +1,4 @@
-# Group Anagrams
+# [Group Anagrams](https://neetcode.io/problems/anagram-groups/)
 
 ## Problem
 
@@ -52,7 +52,7 @@ A common improvement is:
 - Use the sorted string as a key
 - All anagrams share the same sorted form
 
-## OK (Hash Table)
+## OK (Hash Map)
 
 Two strings are anagrams **if and only if** they have the **same frequency of each character**.
 

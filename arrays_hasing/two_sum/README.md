@@ -1,4 +1,4 @@
-# Two Sum
+# [Two Sum](https://neetcode.io/problems/two-integer-sum)
 
 ## Problem
 
