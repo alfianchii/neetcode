@@ -1,21 +1,15 @@
 package main
 
-import (
-	"sort"
-)
-
 func GroupAnagrams(strs []string) [][]string {
-	groups := make(map[string][]string)
+	groups := make(map[[26]int][]string)
 
 	for _, s := range strs {
-		chars := []byte(s)
+		var count [26]int
+		for i := 0; i < len(s); i++ {
+			count[s[i]-'a']++
+		}
 
-		sort.Slice(chars, func(i, j int) bool {
-			return chars[i] < chars[j]
-		})
-
-		key := string(chars)
-		groups[key] = append(groups[key], s)
+		groups[count] = append(groups[count], s)
 	}
 
 	res := make([][]string, 0, len(groups))
