@@ -33,6 +33,8 @@ Output: [[""]]
 - `-10,000,000 <= target <= 10,000,000`
 - Only one valid answer exists.
 
+---
+
 ## Brute Force Intuition
 
 A straightforward idea is:

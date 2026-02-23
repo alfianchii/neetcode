@@ -11,7 +11,7 @@ Input: nums = [1, 2, 3, 3]
 Output: true
 ```
 
-### Example 1
+### Example 2
 
 ```go
 Input: nums = [1, 2, 3, 4]
