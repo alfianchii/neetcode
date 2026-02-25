@@ -3,9 +3,9 @@ package main
 func ProductExceptSelf(nums []int) []int {
 	res := make([]int, len(nums))
 
-	for i := 0; i < len(nums); i++ {
+	for i := range nums {
 		count := 1
-		for j := 0; j < len(nums); j++ {
+		for j := range nums {
 			if i != j {
 				count *= nums[j]
 			}
