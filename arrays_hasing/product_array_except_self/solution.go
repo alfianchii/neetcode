@@ -8,11 +8,9 @@ func ProductExceptSelf(nums []int) []int {
 		for j := 0; j < len(nums); j++ {
 			num := nums[j]
 
-			if i == j {
-				continue
+			if i != j {
+				count *= num
 			}
-
-			count *= num
 		}
 
 		res[i] = count
