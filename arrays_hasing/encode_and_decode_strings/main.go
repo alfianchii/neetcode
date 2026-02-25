@@ -13,7 +13,6 @@ func main() {
 	encodedStr := s.Encode(strs)
 	decodedStr := s.Decode(encodedStr)
 
-	fmt.Println("OKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOKOK")
 	fmt.Println(encodedStr)
 	fmt.Println(decodedStr)
 }
