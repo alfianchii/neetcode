@@ -5,7 +5,7 @@ type MyHashSet struct {
 }
 
 func Constructor() MyHashSet {
-	return MyHashSet{buckets: make([][]int, 1000)}
+	return MyHashSet{buckets: make([][]int, 10001)}
 }
 
 func (this *MyHashSet) Add(key int) {
