@@ -31,7 +31,7 @@ Output: ""
 
 - `1 <= strs.length <= 200`
 - `0 <= strs[i].length <= 200`
-- `strs[i]` is made up of lowercase English letters if it is non-empty
+- `strs[i]` is made up of lowercase English letters if it is non-empty.
 
 ---
 

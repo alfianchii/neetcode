@@ -36,7 +36,7 @@ myHashMap.get(2); // return -1 (i.e., not found), The map is now [[1,1]]
 ### Constraints
 
 - `0 <= key, value <= 1,000,000`
-- `At most 10,000 calls will be made to put, get, and remove`
+- At most 10,000 calls will be made to put, get, and remove.
 
 ---
 
