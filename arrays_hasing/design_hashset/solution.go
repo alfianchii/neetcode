@@ -15,17 +15,25 @@ func Constructor() MyHashSet {
 }
 
 func (this *MyHashSet) Add(key int) {
-	this.bucket[key] = key
+	if !this.Contains(key) {
+		this.bucket = append(this.bucket, key)
+	}
 }
 
 func (this *MyHashSet) Remove(key int) {
-	this.bucket[key] = -1
+	for i, v := range this.bucket {
+		if v == key {
+			this.bucket = append(this.bucket[:i], this.bucket[i+1:]...)
+			return
+		}
+	}
 }
 
 func (this *MyHashSet) Contains(key int) bool {
-	if this.bucket[key] == -1 {
-		return false
+	for _, v := range this.bucket {
+		if v == key {
+			return true
+		}
 	}
-
-	return true
+	return false
 }
