@@ -1,25 +1,56 @@
 package main
 
+type entry struct {
+	key   int
+	value int
+}
+
 type MyHashMap struct {
-	bucket []int
+	buckets [][]entry
 }
 
 func Constructor() MyHashMap {
-	bucket := make([]int, 1000001)
-	for i := range bucket {
-		bucket[i] = -1
-	}
-	return MyHashMap{bucket: bucket}
+	buckets := make([][]entry, 1000)
+
+	return MyHashMap{buckets}
 }
 
 func (this *MyHashMap) Put(key int, value int) {
-	this.bucket[key] = value
+	idx := this.getIdx(key)
+
+	for i, el := range this.buckets[idx] {
+		if el.key == key {
+			this.buckets[idx][i].value = value
+			return
+		}
+	}
+
+	this.buckets[idx] = append(this.buckets[idx], entry{key, value})
 }
 
 func (this *MyHashMap) Get(key int) int {
-	return this.bucket[key]
+	idx := this.getIdx(key)
+
+	for _, el := range this.buckets[idx] {
+		if el.key == key {
+			return el.value
+		}
+	}
+
+	return -1
 }
 
 func (this *MyHashMap) Remove(key int) {
-	this.bucket[key] = -1
+	idx := this.getIdx(key)
+
+	for i, el := range this.buckets[idx] {
+		if el.key == key {
+			this.buckets[idx] = append(this.buckets[idx][:i], this.buckets[idx][i+1:]...)
+			return
+		}
+	}
+}
+
+func (this *MyHashMap) getIdx(key int) int {
+	return key % len(this.buckets)
 }
